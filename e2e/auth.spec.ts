@@ -62,7 +62,7 @@ test.describe('Authentication', () => {
 
     // Logout
     await productsPage.logout();
-    await expect(page).toHaveURL(/index.html/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
 
     // Second login with different user
     await homePage.login(PROBLEM_USER, PASSWORD);
@@ -76,7 +76,7 @@ test.describe('Authentication', () => {
     await expect(productsPage.title).toHaveText('Products');
 
     await productsPage.logout();
-    await expect(page).toHaveURL(/index.html/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
     await expect(homePage.loginButton).toBeVisible();
   });
 
@@ -95,8 +95,8 @@ test.describe('Authentication', () => {
     // Try accessing products page directly without login
     await page.goto('https://www.saucedemo.com/inventory.html');
     
-    // Should be redirected to login
-    await expect(page).toHaveURL(/index.html/);
+    // Should be redirected to login (root path)
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
   });
 
   test('Login persistence: items in cart persist after logout/login', async ({ page, homePage, productsPage, cartPage }) => {
@@ -108,7 +108,7 @@ test.describe('Authentication', () => {
 
     // Logout
     await productsPage.logout();
-    await expect(page).toHaveURL(/index.html/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
 
     // Login again
     await homePage.login(STANDARD_USER, PASSWORD);

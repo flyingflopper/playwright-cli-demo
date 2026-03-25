@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "commonjs",
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "outDir": "./dist",
     "rootDir": "./",
     "strict": true,
@@ -18,7 +18,8 @@
   "include": [
     "pages/**/*.ts",
     "fixtures/**/*.ts",
-    "e2e/**/*.ts"
+    "e2e/**/*.ts",
+    "api/**/*.ts"
   ],
   "exclude": [
     "node_modules",

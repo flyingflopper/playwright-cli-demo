@@ -1,0 +1,8 @@
+﻿
+Running 123 tests using 2 workers
+
+[1A[2K[1/123] [chromium] ΓÇ║ api\auth.spec.ts:23:7 ΓÇ║ API: Authentication Endpoints ΓÇ║ API: Login with invalid credentials returns 401
+[1A[2K[2/123] [chromium] ΓÇ║ api\auth.spec.ts:6:7 ΓÇ║ API: Authentication Endpoints ΓÇ║ API: Login endpoint returns valid session
+[1A[2K[3/123] [chromium] ΓÇ║ api\auth.spec.ts:48:7 ΓÇ║ API: Authentication Endpoints ΓÇ║ API: Logout endpoint clears session
+[1A[2K[4/123] [chromium] ΓÇ║ api\auth.spec.ts:65:7 ΓÇ║ API: Authentication Endpoints ΓÇ║ API: Session validation returns current user info
+[1A[2K[5/123] [chromium] ΓÇ║ api\auth.spec.ts:79:7 ΓÇ║ API: Authentication Endpoints ΓÇ║ API: Missing authentication header is rejected

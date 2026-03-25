@@ -173,7 +173,7 @@ test.describe('Integration: Complex User Workflows', () => {
 
     // Logout
     await productsPage.logout();
-    await expect(page).toHaveURL(/index.html/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
 
     // Login again with same user
     await homePage.login(STANDARD_USER, PASSWORD);

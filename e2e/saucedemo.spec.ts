@@ -94,7 +94,7 @@ test.describe('SauceDemo critical flows (POM)', () => {
     await expect(productsPage.title).toHaveText('Products');
 
     await productsPage.logout();
-    await expect(page).toHaveURL(/index.html/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
     await expect(homePage.loginButton).toBeVisible();
   });
 
@@ -107,7 +107,7 @@ test.describe('SauceDemo critical flows (POM)', () => {
 
     // Logout
     await productsPage.logout();
-    await expect(page).toHaveURL(/index.html/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
 
     // Login again
     await homePage.login(STANDARD_USER, PASSWORD);

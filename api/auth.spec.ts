@@ -59,7 +59,7 @@ test.describe('API: Authentication Endpoints', () => {
 
     // Logout
     await productsPage.logout();
-    await expect(page).toHaveURL(/index.html/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
   });
 
   test('API: Session validation returns current user info', async ({ page, homePage, productsPage }) => {
@@ -87,7 +87,7 @@ test.describe('API: Authentication Endpoints', () => {
 
     await page.goto(BASE_URL + 'inventory.html');
     // Should redirect to login since no auth
-    await expect(page).toHaveURL(/index.html/);
+    await expect(page).toHaveURL('https://www.saucedemo.com/');
   });
 
   test('API: Token refresh endpoint extends session', async ({ page, homePage, productsPage }) => {
