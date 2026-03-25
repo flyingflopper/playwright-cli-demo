@@ -334,3 +334,61 @@ Running 123 tests using 2 workers
 [1A[2K[86/123] [chromium] ΓÇ║ e2e\example.spec.ts:3:5 ΓÇ║ has title
 [1A[2K[87/123] [chromium] ΓÇ║ e2e\example.spec.ts:10:5 ΓÇ║ get started link
 [1A[2K[88/123] [chromium] ΓÇ║ e2e\integration.spec.ts:9:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ End-to-end: Browse ΓåÆ Sort ΓåÆ Add ΓåÆ Checkout ΓåÆ Complete
+[1A[2K  10) [chromium] ΓÇ║ e2e\checkout.spec.ts:167:7 ΓÇ║ Checkout ΓÇ║ Checkout flow: problem user ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for getByRole('button', { name: 'Finish' })[22m
+
+
+       at pages\SauceCheckoutPage.ts:30
+
+      28 |
+      29 |   async finishCheckout() {
+    > 30 |     await this.finishButton.click();
+         |                             ^
+      31 |     await this.completeMessage.waitFor({ state: 'visible' });
+      32 |   }
+      33 | }
+        at SauceCheckoutPage.finishCheckout (C:\Users\ABC\Desktop\local\playwright-cli-demo\pages\SauceCheckoutPage.ts:30:29)
+        at C:\Users\ABC\Desktop\local\playwright-cli-demo\e2e\checkout.spec.ts:177:24
+
+    attachment #1: screenshot (image/png) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    test-results\e2e-checkout-Checkout-Checkout-flow-problem-user-chromium\test-failed-1.png
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    Error Context: test-results\e2e-checkout-Checkout-Checkout-flow-problem-user-chromium\error-context.md
+
+
+[1A[2K[89/123] [chromium] ΓÇ║ e2e\integration.spec.ts:44:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Add multiple products across different price points
+[1A[2K  11) [chromium] ΓÇ║ e2e\integration.spec.ts:9:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ End-to-end: Browse ΓåÆ Sort ΓåÆ Add ΓåÆ Checkout ΓåÆ Complete 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[data-test="productSort"]')[22m
+
+
+       at pages\SauceProductsPage.ts:41
+
+      39 |       'hilo': 'Price (high to low)',
+      40 |     };
+    > 41 |     await this.sortDropdown.selectOption(option);
+         |                             ^
+      42 |   }
+      43 |
+      44 |   async getCartCount() {
+        at SauceProductsPage.sortBy (C:\Users\ABC\Desktop\local\playwright-cli-demo\pages\SauceProductsPage.ts:41:29)
+        at C:\Users\ABC\Desktop\local\playwright-cli-demo\e2e\integration.spec.ts:18:24
+
+    attachment #1: screenshot (image/png) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    test-results\e2e-integration-Integratio-390f6-ΓåÆ-Add-ΓåÆ-Checkout-ΓåÆ-Complete-chromium\test-failed-1.png
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    Error Context: test-results\e2e-integration-Integratio-390f6-ΓåÆ-Add-ΓåÆ-Checkout-ΓåÆ-Complete-chromium\error-context.md
+
+
+[1A[2K[90/123] [chromium] ΓÇ║ e2e\integration.spec.ts:80:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Browse all products, add selective items, review cart
