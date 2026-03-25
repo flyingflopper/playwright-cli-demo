@@ -63,19 +63,23 @@ jobs:
         if: github.event.inputs.test-type == 'e2e'
         run: |
           if [ "${{ github.event.inputs.browser }}" == "all" ]; then
-            npx playwright test e2e/
+            npx playwright test
           else
-            npx playwright test e2e/ --project=${{ github.event.inputs.browser }}
+            npx playwright test --project=${{ github.event.inputs.browser }}
           fi
+        env:
+          TEST_TYPE: e2e
 
       - name: Run API tests
         if: github.event.inputs.test-type == 'api'
         run: |
           if [ "${{ github.event.inputs.browser }}" == "all" ]; then
-            npx playwright test api/
+            npx playwright test
           else
-            npx playwright test api/ --project=${{ github.event.inputs.browser }}
+            npx playwright test --project=${{ github.event.inputs.browser }}
           fi
+        env:
+          TEST_TYPE: api
 
       - name: Upload test results
         uses: actions/upload-artifact@v3

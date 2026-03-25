@@ -36,12 +36,8 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps ${{ matrix.browser }}
 
-      - name: Run E2E tests - ${{ matrix.browser }}
-        run: npx playwright test e2e/ --project=${{ matrix.browser }}
-        continue-on-error: true
-
-      - name: Run API tests - ${{ matrix.browser }}
-        run: npx playwright test api/ --project=${{ matrix.browser }}
+      - name: Run all tests - ${{ matrix.browser }}
+        run: npx playwright test --project=${{ matrix.browser }}
         continue-on-error: true
 
       - name: Upload Playwright report
