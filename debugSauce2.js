@@ -1,0 +1,20 @@
+const { chromium } = require('playwright');
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  await page.goto('https://www.saucedemo.com/');
+  await page.fill('[data-test="username"]', 'standard_user');
+  await page.fill('[data-test="password"]', 'secret_sauce');
+  await page.click('[data-test="login-button"]');
+  await page.click('.inventory_item:has-text("Sauce Labs Bike Light") button');
+  await page.click('.shopping_cart_link');
+  await page.click('[data-test="checkout"]');
+  await page.click('[data-test="continue"]');
+  await page.waitForTimeout(500);
+  const errors = await page.locator('.error-message-container').allTextContents();
+  const invisible = await page.locator('[data-test="firstName"]').isVisible();
+  const attr = await page.locator('[data-test="firstName"]').textContent();
+  console.log('errors', errors);
+  console.log('url', page.url());
+  await browser.close();
+})();
