@@ -392,3 +392,83 @@ Running 123 tests using 2 workers
 
 
 [1A[2K[90/123] [chromium] ΓÇ║ e2e\integration.spec.ts:80:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Browse all products, add selective items, review cart
+[1A[2K  12) [chromium] ΓÇ║ e2e\integration.spec.ts:44:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Add multiple products across different price points 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.selectOption: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('[data-test="productSort"]')[22m
+
+
+       at pages\SauceProductsPage.ts:41
+
+      39 |       'hilo': 'Price (high to low)',
+      40 |     };
+    > 41 |     await this.sortDropdown.selectOption(option);
+         |                             ^
+      42 |   }
+      43 |
+      44 |   async getCartCount() {
+        at SauceProductsPage.sortBy (C:\Users\ABC\Desktop\local\playwright-cli-demo\pages\SauceProductsPage.ts:41:29)
+        at C:\Users\ABC\Desktop\local\playwright-cli-demo\e2e\integration.spec.ts:49:24
+
+    attachment #1: screenshot (image/png) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    test-results\e2e-integration-Integratio-96fe3-ross-different-price-points-chromium\test-failed-1.png
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    Error Context: test-results\e2e-integration-Integratio-96fe3-ross-different-price-points-chromium\error-context.md
+
+
+[1A[2K[91/123] [chromium] ΓÇ║ e2e\integration.spec.ts:104:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Add ΓåÆ Remove ΓåÆ Add Again the same product
+[1A[2K[92/123] [chromium] ΓÇ║ e2e\integration.spec.ts:130:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Sort changes, add item, sort again, verify item still in cart
+[1A[2K  13) [chromium] ΓÇ║ e2e\integration.spec.ts:80:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Browse all products, add selective items, review cart 
+
+    [31mTest timeout of 30000ms exceeded.[39m
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+    [2m  - waiting for locator('.inventory_item button:has-text("Add to cart")').nth(4)[22m
+
+
+      89 |     const addButtons = page.locator('.inventory_item button:has-text("Add to cart")');
+      90 |     for (let i = 0; i < itemCount; i += 2) {
+    > 91 |       await addButtons.nth(i).click();
+         |                               ^
+      92 |       await page.waitForTimeout(100);
+      93 |     }
+      94 |
+        at C:\Users\ABC\Desktop\local\playwright-cli-demo\e2e\integration.spec.ts:91:31
+
+    attachment #1: screenshot (image/png) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    test-results\e2e-integration-Integratio-38603-selective-items-review-cart-chromium\test-failed-1.png
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    Error Context: test-results\e2e-integration-Integratio-38603-selective-items-review-cart-chromium\error-context.md
+
+
+[1A[2K[93/123] [chromium] ΓÇ║ e2e\integration.spec.ts:165:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Session timeout scenario - logout/login preserves cart
+[1A[2K[94/123] [chromium] ΓÇ║ e2e\integration.spec.ts:189:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Multiple users different carts
+[1A[2K  14) [chromium] ΓÇ║ e2e\integration.spec.ts:189:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Multiple users different carts 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mnot[2m.[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: not [32m"1"[39m
+
+      206 |     if (isVisible) {
+      207 |       const count = await badge.textContent();
+    > 208 |       expect(count).not.toBe('1');
+          |                         ^
+      209 |     }
+      210 |
+      211 |     // Add different item
+        at C:\Users\ABC\Desktop\local\playwright-cli-demo\e2e\integration.spec.ts:208:25
+
+    attachment #1: screenshot (image/png) ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+    test-results\e2e-integration-Integratio-45667-tiple-users-different-carts-chromium\test-failed-1.png
+    ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+    Error Context: test-results\e2e-integration-Integratio-45667-tiple-users-different-carts-chromium\error-context.md
+
+
+[1A[2K[95/123] [chromium] ΓÇ║ e2e\integration.spec.ts:224:7 ΓÇ║ Integration: Complex User Workflows ΓÇ║ Workflow: Full shopping experience with multiple operations
