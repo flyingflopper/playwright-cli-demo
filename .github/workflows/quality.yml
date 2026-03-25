@@ -1,0 +1,100 @@
+name: Code Quality Checks
+
+on:
+  push:
+    branches: [ main, master, develop, staging ]
+  pull_request:
+    branches: [ main, master, develop, staging ]
+
+jobs:
+  quality:
+    name: Code Quality
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check TypeScript compilation
+        run: npx tsc --noEmit
+        continue-on-error: true
+
+      - name: Validate test files exist
+        run: |
+          echo "E2E Tests:"
+          ls -la e2e/*.spec.ts | wc -l
+          echo "API Tests:"
+          ls -la api/*.spec.ts | wc -l
+
+      - name: Check Page Object files
+        run: |
+          echo "Page Objects:"
+          ls -la pages/*.ts | wc -l
+
+  playwright-version:
+    name: Playwright Version Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check Playwright version
+        run: |
+          echo "Playwright version:"
+          npx playwright --version
+
+      - name: List installed browsers
+        run: |
+          echo "Installed browsers:"
+          npx playwright install-deps --dry-run || true
+
+  config-validate:
+    name: Configuration Validation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate playwright.config.ts
+        run: |
+          if [ ! -f playwright.config.ts ]; then
+            echo "❌ playwright.config.ts not found"
+            exit 1
+          fi
+          echo "✅ playwright.config.ts found"
+
+      - name: Validate tsconfig.json
+        run: |
+          if [ ! -f tsconfig.json ]; then
+            echo "❌ tsconfig.json not found"
+            exit 1
+          fi
+          echo "✅ tsconfig.json found"
+
+      - name: Validate package.json
+        run: |
+          if [ ! -f package.json ]; then
+            echo "❌ package.json not found"
+            exit 1
+          fi
+          echo "✅ package.json found"

@@ -1,0 +1,99 @@
+name: Manual Test Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      test-type:
+        description: 'Type of tests to run'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - e2e
+          - api
+      browser:
+        description: 'Browser to test'
+        required: true
+        default: 'chromium'
+        type: choice
+        options:
+          - chromium
+          - firefox
+          - webkit
+          - all
+      headless:
+        description: 'Run in headless mode'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  manual-test:
+    name: Manual Test Execution - ${{ github.event.inputs.test-type }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps
+
+      - name: Run all tests
+        if: github.event.inputs.test-type == 'all'
+        run: |
+          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
+            npx playwright test
+          else
+            npx playwright test --project=${{ github.event.inputs.browser }}
+          fi
+
+      - name: Run E2E tests
+        if: github.event.inputs.test-type == 'e2e'
+        run: |
+          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
+            npx playwright test e2e/
+          else
+            npx playwright test e2e/ --project=${{ github.event.inputs.browser }}
+          fi
+
+      - name: Run API tests
+        if: github.event.inputs.test-type == 'api'
+        run: |
+          if [ "${{ github.event.inputs.browser }}" == "all" ]; then
+            npx playwright test api/
+          else
+            npx playwright test api/ --project=${{ github.event.inputs.browser }}
+          fi
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: manual-test-results
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Manual Test Execution Complete"
+          echo "- Test Type: ${{ github.event.inputs.test-type }}"
+          echo "- Browser: ${{ github.event.inputs.browser }}"
+          echo "- Headless: ${{ github.event.inputs.headless }}"
+          echo ""
+          echo "📊 Reports:"
+          echo "Check the artifacts section for detailed test reports"

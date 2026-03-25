@@ -1,0 +1,31 @@
+version: 2
+updates:
+  # Check for npm dependency updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "05:00"
+    assignees:
+      - "flyingflopper"
+    reviewers:
+      - "flyingflopper"
+    allow:
+      - dependency-type: "production"
+      - dependency-type: "development"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "chore"
+      prefix-scope: "dependencies"
+      include: "scope"
+
+  # Check for GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    assignees:
+      - "flyingflopper"
+    reviewers:
+      - "flyingflopper"
